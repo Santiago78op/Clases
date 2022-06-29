@@ -1,0 +1,44 @@
+digraph "round-table" {
+    // sdag[dfg][fgs]   
+    node[shape=box fontname="Arial" fillcolor="white" style=filled]
+    A [label="INITIAL"]
+    B [label="L_INTS"]
+ 
+    // Lo que contiene la lista
+    A -> B
+
+    J [label="INST"]
+    C [label="INST"]
+    D [label="L_INTS INTS"]
+    K [label="L_INTS"]
+    B -> C 
+    B -> K
+    K -> D
+    K -> J
+
+    # EJEMPLO 78(isdufh 98 ee)
+    I [label="num 98"]
+    H [label="letters ee"]
+    F [label="num 98"]
+    G [label="letters isdufh"]
+    J -> I 
+    C -> H
+    D -> G
+    D -> F
+
+}
+
+
+/*
+INITIAL : parentesis_o L_INTS parentesis_c
+       | corchete_o L_INTS corchete_c
+       | L_INTS
+
+L_INTS : L_INTS INTS
+       | INST   
+
+INTS : num
+       | letters
+       | corchete_O L_INTS corchete_C
+       | parentesis_O L_INTS parentesis_C
+*/
